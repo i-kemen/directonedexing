@@ -21,8 +21,8 @@
 # 2. 프로젝트 제안서
 
 하나 다이렉트 원덱싱의 초기 프로젝트 제안 발표 자료입니다.
-   ![슬라이드1](https://github.com/i-kemen/directonedexing/assets/117060656/0620a385-36d7-402e-8e4b-03ceb046fa08)<br>
-   [제안발표자료](/하나원큐레이터_제안발표.pptx)<br>
+   ![2360340005_김남훈_다이렉트인덱싱_하나원덱싱 (1)_1](https://github.com/i-kemen/directonedexing/assets/117060656/398ac1c0-7b23-48ed-a6a9-4d008b18e500)<br>
+  [2360340005_김남훈_다이렉트인덱싱_하나원덱싱 (1).pdf](https://github.com/i-kemen/directonedexing/files/13167311/2360340005_._._.1.pdf)<br>
 <br> <br> 
 
 # 3. 프로젝트 결과
@@ -31,7 +31,7 @@
    ![슬라이드1](https://github.com/i-kemen/directonedexing/assets/117060656/0620a385-36d7-402e-8e4b-03ceb046fa08)<br>
    [2360340005_김남훈_발표자료(최종).pdf](https://github.com/i-kemen/directonedexing/files/13166897/2360340005_._.pdf)<br>
 ## * 시연 동영상
-[시연영상](https://youtu.be/g9-8TnVgSvo)
+[![썸네일](https://github.com/i-kemen/directonedexing/assets/117060656/bb1c2634-d8ab-44ee-8263-77503d062323)](https://youtu.be/g9-8TnVgSvo)
    <br>
    *사진을 누르시면 영상 유튜브 사이트로 이동합니다
 <br><br>
