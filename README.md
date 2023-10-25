@@ -32,7 +32,7 @@
    [2360340005_김남훈_발표자료(최종).pdf](https://github.com/i-kemen/directonedexing/files/13166897/2360340005_._.pdf)<br>
 ## * 시연 동영상
 
-[![시연영상](https://github.com/i-kemen/directonedexing/assets/117060656/bb1c2634-d8ab-44ee-8263-77503d062323)]
+![시연영상](https://github.com/i-kemen/directonedexing/assets/117060656/bb1c2634-d8ab-44ee-8263-77503d062323)
 [시연영상](https://youtu.be/g9-8TnVgSvo)
 
    <br>
