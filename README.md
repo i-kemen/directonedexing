@@ -31,12 +31,11 @@
    ![슬라이드1](https://github.com/i-kemen/directonedexing/assets/117060656/0620a385-36d7-402e-8e4b-03ceb046fa08)<br>
    [2360340005_김남훈_발표자료(최종).pdf](https://github.com/i-kemen/directonedexing/files/13166897/2360340005_._.pdf)<br>
 ## * 시연 동영상
-[![Video Label](https://img.https://youtu.be/g9-8TnVgSvo/0.jpg)](https://youtu.be/g9-8TnVgSvo)
 
-[![시연영상](https://github.com/i-kemen/directonedexing/assets/117060656/bb1c2634-d8ab-44ee-8263-77503d062323)](https://youtu.be/g9-8TnVgSvo)
-
+[![시연영상](https://github.com/i-kemen/directonedexing/assets/117060656/bb1c2634-d8ab-44ee-8263-77503d062323)]
+(https://youtu.be/g9-8TnVgSvo)
    <br>
-   *사진을 누르시면 영상 유튜브 사이트로 이동합니다
+   *링크를 누르시면 영상 유튜브 사이트로 이동합니다.
 <br><br>
 
 
