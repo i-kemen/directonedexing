@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.namhoon.di.mapper.AccountMapper">
+
+    <insert id="createAccount" parameterType="com.namhoon.di.dto.AccountDTO">
+        INSERT INTO Accounts(accountNumber, accountType, id, accountName, deposit)
+        VALUES (#{accountNumber}, #{accountType}, #{id}, #{accountName}, #{deposit})
+    </insert>
+
+    <update id="depositMoney" parameterType="com.namhoon.di.dto.AccountDTO">
+        UPDATE Accounts SET deposit = deposit + #{deposit} WHERE accountNumber = #{accountNumber} AND accountType = #{accountType} AND deposit + #{deposit} >= 0
+    </update>
+
+    <update id="updateDeposit" parameterType="com.namhoon.di.dto.AccountDTO">
+        UPDATE Accounts SET deposit = deposit + #{deposit} WHERE accountNumber = #{accountNumber} AND accountType = #{accountType}
+    </update>
+
+    <select id="listAccountsByUserId" resultType="com.namhoon.di.dto.AccountDTO">
+        SELECT * FROM Accounts WHERE id = #{userId}
+    </select>
+
+    <select id="getAccountByNumber" resultType="com.namhoon.di.dto.AccountDTO">
+        SELECT * FROM Accounts WHERE accountNumber = #{accountNumber}
+    </select>
+
+</mapper>

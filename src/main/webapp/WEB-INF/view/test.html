@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>반응형 그래프 예시</title>
+</head>
+<body>
+<button onclick="changeData()">조건 변경</button>
+<canvas id="myChart"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  let chartData = {
+    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    datasets: [{
+      label: '# of Votes',
+      data: [12, 19, 3, 5, 2, 3],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)'
+      ]
+    }]
+  };
+
+  let myChart;
+
+  function initializeChart() {
+    const ctx = document.getElementById('myChart').getContext('2d');
+    myChart = new Chart(ctx, {
+      type: 'bar',
+      data: chartData
+    });
+  }
+
+  function changeData() {
+    chartData.datasets[0].data = [5, 10, 15, 20, 25, 30]; // 새로운 데이터로 변경
+    myChart.update(); // 그래프 업데이트
+  }
+
+  initializeChart();
+
+</script>
+</body>
+</html>

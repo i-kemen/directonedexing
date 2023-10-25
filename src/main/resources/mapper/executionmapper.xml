@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.namhoon.di.mapper.ExecutionMapper">
+
+    <insert id="insertExecution" parameterType="com.namhoon.di.dto.ExecutionDTO">
+        INSERT INTO Executions (execution_id, order_id, id, portfolio_id, item_id, accountNumber, accountType, market,
+                                ticker, stockname, order_type, quantity, executed_price, executed_date, status_code,
+                                transaction_id)
+        VALUES (execution_seq.NEXTVAL, #{orderId}, #{id}, #{portfolioId}, #{itemId}, #{accountNumber}, #{accountType},
+                #{market}, #{ticker}, #{stockname}, #{orderType}, #{quantity}, #{executedPrice}, SYSDATE,
+                #{statusCode}, #{transactionId})
+    </insert>
+
+    <select id="selectExecutionById" resultType="com.namhoon.di.dto.ExecutionDTO">
+        SELECT *
+        FROM Executions
+        WHERE execution_id = #{executionId}
+    </select>
+
+    <select id="selectAllExecutions" resultType="com.namhoon.di.dto.ExecutionDTO">
+        SELECT *
+        FROM Executions
+    </select>
+
+    <update id="updateExecution" parameterType="com.namhoon.di.dto.ExecutionDTO">
+        UPDATE Executions
+        SET order_id       = #{orderId},
+            id             = #{id},
+            portfolio_id   = #{portfolioId},
+            item_id        = #{itemId},
+            accountNumber  = #{accountNumber},
+            accountType    = #{accountType},
+            market         = #{market},
+            ticker         = #{ticker},
+            stockname      = #{stockname},
+            order_type     = #{orderType},
+            quantity       = #{quantity},
+            executed_price = #{executedPrice},
+            executed_date  = #{executedDate},
+            status_code    = #{statusCode},
+            transaction_id = #{transactionId}
+        WHERE execution_id = #{executionId}
+    </update>
+
+    <delete id="deleteExecution">
+        DELETE
+        FROM Executions
+        WHERE execution_id = #{executionId}
+    </delete>
+
+</mapper>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.namhoon.di.mapper.AccountTransactionMapper">
+
+    <!-- Insert Operation with Sequence -->
+    <insert id="insertTransaction" parameterType="com.namhoon.di.dto.AccountTransactionDTO" useGeneratedKeys="true" keyProperty="transactionId" keyColumn="TRANSACTION_ID">
+        INSERT INTO AccountTransactions (
+            TRANSACTION_ID, accountNumber, accountType, transactionType, amount, transactionDate
+        ) VALUES (
+                     accounttransaction_seq.NEXTVAL, #{accountNumber}, #{accountType}, #{transactionType}, #{amount}, SYSDATE
+                 )
+    </insert>
+
+    <!-- Select Single Transaction by ID -->
+    <select id="selectTransactionById" resultType="com.namhoon.di.dto.AccountTransactionDTO">
+        SELECT * FROM AccountTransactions WHERE TRANSACTION_ID = #{transactionId}
+    </select>
+
+    <!-- Select All Transactions -->
+    <select id="selectAllTransactions" resultType="com.namhoon.di.dto.AccountTransactionDTO">
+        SELECT * FROM AccountTransactions
+    </select>
+
+    <!-- Update Operation -->
+    <update id="updateTransaction" parameterType="com.namhoon.di.dto.AccountTransactionDTO">
+        UPDATE AccountTransactions SET
+                                       accountNumber = #{accountNumber},
+                                       accountType = #{accountType},
+                                       transactionType = #{transactionType},
+                                       amount = #{amount},
+                                       transactionDate = #{transactionDate}
+        WHERE TRANSACTION_ID = #{transactionId}
+    </update>
+
+    <!-- Delete Operation -->
+    <delete id="deleteTransaction">
+        DELETE FROM AccountTransactions WHERE TRANSACTION_ID = #{transactionId}
+    </delete>
+
+</mapper>

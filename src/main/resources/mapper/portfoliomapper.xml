@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.namhoon.di.mapper.PortfolioMapper">
+
+    <!--            <insert id="insertPortfolio" parameterType="com.namhoon.di.dto.PortfolioDTO">-->
+    <!--                INSERT INTO portfolios (portfolio_id, portfolio_name, id, created_date)-->
+    <!--                VALUES (portfolio_seq.NEXTVAL, #{portfolioName}, #{id}, SYSDATE)-->
+    <!--            </insert>-->
+
+    <insert id="insertPortfolio" parameterType="com.namhoon.di.dto.PortfolioDTO" useGeneratedKeys="true"
+            keyProperty="portfolioId" keyColumn="portfolio_id">
+        INSERT INTO portfolios (portfolio_id, portfolio_name, id, created_date)
+        VALUES (portfolio_seq.NEXTVAL, #{portfolioName}, #{id}, SYSDATE)
+    </insert>
+
+
+    <insert id="insertPortfolioItem" parameterType="com.namhoon.di.dto.PortfolioItemDTO">
+        INSERT INTO portfolio_items (item_id, portfolio_id, market, ticker, stockname, weight)
+        VALUES (item_seq.NEXTVAL, #{portfolioId}, #{market}, #{ticker}, #{stockname}, #{weight})
+    </insert>
+
+    <select id="findPortfolioById" resultType="com.namhoon.di.dto.PortfolioDTO">
+        SELECT *
+        FROM portfolios
+        WHERE portfolio_id = #{portfolioId}
+    </select>
+
+    <select id="findPortfoliosByUserId" resultType="com.namhoon.di.dto.PortfolioDTO">
+        SELECT portfolio_id, portfolio_name, id, created_date as createdDate
+        FROM portfolios
+        WHERE id = #{id}
+    </select>
+
+    <select id="findItemsByPortfolioId" resultType="com.namhoon.di.dto.PortfolioItemDTO">
+        SELECT *
+        FROM portfolio_items
+        WHERE portfolio_id = #{portfolioId}
+    </select>
+    <!-- 기타 매퍼 메서드들... -->
+</mapper>
+
+

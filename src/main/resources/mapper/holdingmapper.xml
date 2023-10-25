@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.namhoon.di.mapper.HoldingMapper">
+
+    <insert id="insertHolding" parameterType="com.namhoon.di.dto.HoldingDTO">
+        INSERT INTO Holdings (holding_id, id, portfolio_id, item_id, accountNumber, accountType, market, ticker,
+                              stockname, quantity, avg_price, last_order_date)
+        VALUES (holding_seq.NEXTVAL, #{id}, #{portfolioId}, #{itemId}, #{accountNumber}, #{accountType}, #{market},
+                #{ticker}, #{stockname}, #{quantity}, #{avgPrice}, SYSDATE)
+    </insert>
+
+    <select id="selectHoldingById" resultType="com.namhoon.di.dto.HoldingDTO">
+        SELECT *
+        FROM Holdings
+        WHERE holding_id = #{holdingId}
+    </select>
+
+    <select id="selectAllHoldings" resultType="com.namhoon.di.dto.HoldingDTO">
+        SELECT *
+        FROM Holdings
+    </select>
+
+    <update id="updateHolding" parameterType="com.namhoon.di.dto.HoldingDTO">
+        UPDATE Holdings
+        SET id              = #{id},
+            portfolio_id    = #{portfolioId},
+            item_id         = #{itemId},
+            accountNumber   = #{accountNumber},
+            accountType     = #{accountType},
+            market          = #{market},
+            ticker          = #{ticker},
+            stockname       = #{stockname},
+            quantity        = #{quantity},
+            avg_price       = #{avgPrice},
+            last_order_date = #{lastOrderDate}
+        WHERE holding_id = #{holdingId}
+    </update>
+
+    <delete id="deleteHolding">
+        DELETE
+        FROM Holdings
+        WHERE holding_id = #{holdingId}
+    </delete>
+
+    <select id="selectHoldingsByUserId" resultType="com.namhoon.di.dto.HoldingDTO">
+        SELECT *
+        FROM Holdings
+        WHERE id = #{id}
+    </select>
+
+
+</mapper>

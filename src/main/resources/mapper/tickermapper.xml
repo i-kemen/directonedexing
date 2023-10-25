@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.namhoon.di.mapper.KorTickerMapper">
+
+    <select id="selectKor" resultType="com.namhoon.di.dto.KorTickerDTO">
+        SELECT *
+        FROM kor_ticker
+        ORDER BY CAP DESC FETCH FIRST 1000 ROWS ONLY
+    </select>
+
+    <!--    <select id="selectKorByCriteria" resultType="com.namhoon.di.dto.KorTickerDTO" parameterType="map">-->
+    <!--        SELECT * FROM kor_ticker-->
+    <!--        <if test="joinWithKorSector">-->
+    <!--            JOIN kor_sector ON kor_ticker.ticker = kor_sector.CMP_CD-->
+    <!--        </if>-->
+    <!--        <where>-->
+    <!--            <if test="market != null">-->
+    <!--                market = #{market}-->
+    <!--            </if>-->
+    <!--            <if test="joinWithKorSector">-->
+    <!--                AND kor_sector.SEC_NM_KOR = 'IT'-->
+    <!--            </if>-->
+    <!--        </where>-->
+    <!--        ORDER BY cap DESC-->
+    <!--        <if test="limit != null">-->
+    <!--            FETCH FIRST #{limit} ROWS ONLY-->
+    <!--        </if>-->
+    <!--    </select>-->
+
+
+    <select id="selectKorByCriteria" resultType="com.namhoon.di.dto.KorTickerDTO" parameterType="map">
+        SELECT * FROM kor_ticker
+        <if test="joinWithKorSector or (selectedSectors != null and selectedSectors.size() > 0)">
+            JOIN kor_sector ON kor_ticker.ticker = kor_sector.CMP_CD
+        </if>
+        <where>
+            <if test="market != null">
+                market = #{market}
+            </if>
+            <if test="joinWithKorSector">
+                AND kor_sector.SEC_NM_KOR = 'IT'
+            </if>
+            <if test="selectedSectors != null and selectedSectors.size() > 0">
+                AND kor_sector.SEC_NM_KOR IN
+                <foreach item="sector" collection="selectedSectors" open="(" separator="," close=")">
+                    #{sector}
+                </foreach>
+            </if>
+        </where>
+        ORDER BY cap DESC
+        <if test="limit != null">
+            FETCH FIRST #{limit} ROWS ONLY
+        </if>
+    </select>
+
+</mapper>

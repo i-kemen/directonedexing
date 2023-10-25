@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.namhoon.di.mapper.OrderMapper">
+
+    <insert id="insertOrder" parameterType="com.namhoon.di.dto.OrderDTO">
+        INSERT INTO Orders (order_id, id, portfolio_id, item_id, accountNumber, accountType, market, ticker, stockname,
+                            order_type, quantity, price, order_date, status_code, transaction_id)
+        VALUES (order_seq.NEXTVAL, #{id}, #{portfolioId}, #{itemId}, #{accountNumber}, #{accountType}, #{market}, #{ticker},
+                #{stockname}, #{orderType}, #{quantity}, #{price}, SYSDATE, #{statusCode}, #{transactionId})
+    </insert>
+
+    <select id="selectOrderById" resultType="com.namhoon.di.dto.OrderDTO">
+        SELECT *
+        FROM Orders
+        WHERE order_id = #{orderId}
+    </select>
+
+    <select id="selectAllOrders" resultType="com.namhoon.di.dto.OrderDTO">
+        SELECT *
+        FROM Orders
+    </select>
+
+    <update id="updateOrder" parameterType="com.namhoon.di.dto.OrderDTO">
+        UPDATE Orders
+        SET id             = #{id},
+            portfolio_id   = #{portfolioId},
+            item_id        = #{itemId},
+            accountNumber  = #{accountNumber},
+            accountType    = #{accountType},
+            market         = #{market},
+            ticker         = #{ticker},
+            stockname      = #{stockname},
+            order_type     = #{orderType},
+            quantity       = #{quantity},
+            price          = #{price},
+            order_date     = #{orderDate},
+            status_code    = #{statusCode},
+            transaction_id = #{transactionId}
+        WHERE order_id = #{orderId}
+    </update>
+
+    <delete id="deleteOrder">
+        DELETE
+        FROM Orders
+        WHERE order_id = #{orderId}
+    </delete>
+
+
+</mapper>
