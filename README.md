@@ -33,7 +33,8 @@
 ## * 시연 동영상
 
 [![시연영상](https://github.com/i-kemen/directonedexing/assets/117060656/bb1c2634-d8ab-44ee-8263-77503d062323)]
-(https://youtu.be/g9-8TnVgSvo)
+[시연영상](https://youtu.be/g9-8TnVgSvo)
+
    <br>
    *링크를 누르시면 영상 유튜브 사이트로 이동합니다.
 <br><br>
